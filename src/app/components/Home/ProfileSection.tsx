@@ -11,7 +11,7 @@ const ProfileSection = () => {
   const { data, isLoading, error } : any = useAPI(config.profile_section.discord_api, 10000);
   useEffect(() => {
       setImage(`https://cdn.discordapp.com/avatars/${data?.data.discord_user.id}/${data?.data.discord_user.avatar}`)
-      if(data?.data.active_on_discord_web && data?.data.active_on_discord_mobile && data?.data.active_on_discord_desktop){
+      if(data?.data.active_on_discord_web || data?.data.active_on_discord_mobile || data?.data.active_on_discord_desktop){
         setOnline(true);
       }
   }, [data])
@@ -62,7 +62,7 @@ const ProfileSection = () => {
 
               {/* DISCORD STATUS SECTION START*/}
               <p className='font-medium text-xs mt-2 text-profile_status'>
-                {online ? `${data?.data.activities[0].emoji.name} ${data?.data.activities[0].state}` : `😿 ${!isLoading ? data?.data.discord_user.username : ""} is not online.`}
+                {online ? data?.data.discord_status != "dnd" ? data?.data.activities.length == 0 ? `😿 ${!isLoading ? data?.data.discord_user.username : ""} is not online.`:`${data?.data.activities[0].emoji.name} ${data?.data.activities[0].state}` : "🚫 Please do not disturb me at the moment." : `😿 ${!isLoading ? data?.data.discord_user.username : ""} is not online.`}
               </p>
               {/* DISCORD STATUS SECTION END*/}
 
