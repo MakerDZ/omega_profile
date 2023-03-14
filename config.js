@@ -1,4 +1,8 @@
 const config = {
+    header : {
+        title : `Omega`,
+        description : `🕵️‍♀️🔍🧩🔮 Enter the enigmatic world of Omega. Discover the secrets that lie within. If you're curious to know more about me, explore my profile website.`,
+    },
     hero_section : {
         title : "👋 Hi, I’m Omega.",
         icon_beside_title : "https://us-east-1.tixte.net/uploads/data_of_omega.tixte.co/Flint_Lockwood_head.png",

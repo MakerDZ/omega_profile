@@ -36,7 +36,6 @@ const ProfileSection = () => {
             />
             <div className='bg-profile_con_top w-6 h-6 rounded-full absolute right-1 bottom-1 flex flex-col justify-center'>
               <div className={data?.data.discord_status == "online" ? 'bg-[#23A559] w-4 h-4 mx-auto rounded-full' : data?.data.discord_status == "idle" ? 'bg-[#FAA61A] w-4 h-4 mx-auto rounded-full' : data?.data.discord_status == "dnd" ? 'bg-[#F04747] w-4 h-4 mx-auto rounded-full' : 'bg-[#747F8D] w-4 h-4 mx-auto rounded-full'}>
-              {/* bg-[#23A559] w-4 h-4 mx-auto rounded-full' */}
               </div>
             </div>
           </div>
@@ -45,18 +44,25 @@ const ProfileSection = () => {
             <div className='w-[88%] mx-auto'>
               {/* DISCORD USERNAME SECTION START*/}
               <div className='flex flex-row'>
-                <h2 className='font-bold text-[1.1875rem] mr-1 text-profile_name'>
-                  {data?.data.discord_user.username}
-                </h2>
-                <h2 className='font-bold text-[1.1875rem] text-profile_hash_tag'>
-                {`#${data?.data.discord_user.discriminator}`}
-                </h2>
+              {!isLoading ? (
+                <>
+                  <h2 className="font-bold text-[1.1875rem] mr-1 text-profile_name">
+                    {data?.data.discord_user.username}
+                  </h2>
+                  <h2 className="font-bold text-[1.1875rem] text-profile_hash_tag">
+                    #{data?.data.discord_user.discriminator}
+                  </h2>
+                </>
+                ) : (
+                  <>
+                  </>
+                )}
               </div>
               {/* DISCORD USERNAME SECTION END*/}
 
               {/* DISCORD STATUS SECTION START*/}
               <p className='font-medium text-xs mt-2 text-profile_status'>
-                {online ? `${data?.data.activities[0].emoji.name} ${data?.data.activities[0].state}` : `😿 ${data?.data.discord_user.username} is not online.`}
+                {online ? `${data?.data.activities[0].emoji.name} ${data?.data.activities[0].state}` : `😿 ${!isLoading ? data?.data.discord_user.username : ""} is not online.`}
               </p>
               {/* DISCORD STATUS SECTION END*/}
 
