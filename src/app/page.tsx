@@ -1,9 +1,9 @@
+import HomePage from "./pages/Home" 
+
 export default function Home() {
   return (
-   <main>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+   <main className="h-full w-full bg-web_bg">
+      <HomePage />
    </main>
   )
 }
