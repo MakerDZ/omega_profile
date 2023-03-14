@@ -10,7 +10,7 @@ const HeroSection = () => {
           <h1 className='font-black pt-5 xl:pr-5 text-hero_title 2xl:text-[3.438rem] xl:text-[2.5rem] lg:text-[2.0rem] md:text-[1.7rem] sm:text-[1.65rem] text-[1.5rem]'>
             {config.hero_section.title}
           </h1>
-          <div className='relative xl:w-[100px] xl:h-[93px] lg:w-20 lg:-h-[73px] md:w-[72px] md:h-[65px] sm:w-[65px] sm:h-[58px] w-[55px] h-[48px]'>
+          <div className='relative xl:w-[100px] xl:h-[93px] lg:w-20 lg:-h-[73px] md:w-[72px] md:h-[65px] sm:w-[65px] sm:h-[58px] w-[58px] h-[51px]'>
               <Image 
                 src={config.hero_section.icon_beside_title}
                 alt="title_icon"

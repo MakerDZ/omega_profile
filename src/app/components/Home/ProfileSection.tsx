@@ -6,11 +6,14 @@ import { config } from '../../../../config'
 import useAPI from '@/app/hooks/useAPI';
 
 const ProfileSection = () => {
-  const [image, setImage] = useState('')
-  const { data, isLoading, error } : any = useAPI(config.profile_section.discord_api, 5000);
-  console.log(data?.data.activities[0].emoji.name)
+  const [image, setImage] = useState('');
+  const [online, setOnline] = useState(false);
+  const { data, isLoading, error } : any = useAPI(config.profile_section.discord_api, 10000);
   useEffect(() => {
       setImage(`https://cdn.discordapp.com/avatars/${data?.data.discord_user.id}/${data?.data.discord_user.avatar}`)
+      if(data?.data.active_on_discord_web && data?.data.active_on_discord_mobile && data?.data.active_on_discord_desktop){
+        setOnline(true);
+      }
   }, [data])
   return (
     <div className='w-[362px] h-auto mx-auto md:mb-0 mb-10 bg-gradient-to-b from-profile_bg_top via-profile_bg_bottom to-profile_bg_middle rounded-[20px] py-2.5 '>
@@ -53,7 +56,7 @@ const ProfileSection = () => {
 
               {/* DISCORD STATUS SECTION START*/}
               <p className='font-medium text-xs mt-2 text-profile_status'>
-                {`${data?.data.activities[0].emoji.name} ${data?.data.activities[0].state}`}
+                {online ? `${data?.data.activities[0].emoji.name} ${data?.data.activities[0].state}` : `😿 ${data?.data.discord_user.username} is not online.`}
               </p>
               {/* DISCORD STATUS SECTION END*/}
 
