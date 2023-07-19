@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image';
+import Image from 'next/image'
 import { config } from '../../../../config'
 
 const HeroSection = () => {
@@ -11,11 +11,11 @@ const HeroSection = () => {
             {config.hero_section.title}
           </h1>
           <div className='relative xl:w-[100px] xl:h-[93px] lg:w-20 lg:-h-[73px] md:w-[72px] md:h-[65px] sm:w-[65px] sm:h-[58px] w-[58px] h-[51px]'>
-              <Image 
-                src={config.hero_section.icon_beside_title}
-                alt="title_icon"
-                fill
-              />
+            <Image
+              src={config.hero_section.icon_beside_title}
+              alt="title_icon"
+              fill
+            />
           </div>
         </div>
       </div>
@@ -23,8 +23,16 @@ const HeroSection = () => {
         {config.hero_section.description}
       </p>
       <div className='flex flex-row mt-7'>
-        <button className='bg-hero_button_bg text-hero_button_lb xl:px-11 lg:px-9 md:px-6 py-3 px-4 rounded-lg mr-8 font-bold xl:text-xl lg:text-base'><a href={config.hero_section.buttons.first_button.link}>{config.hero_section.buttons.first_button.name}</a></button>
-        <button className='bg-hero_button_bg text-hero_button_lb xl:px-11 lg:px-9 md:px-6 py-3 px-4 rounded-lg font-bold xl:text-xl lg:text-base'><a href={config.hero_section.buttons.second_button.link}>{config.hero_section.buttons.second_button.name}</a></button>
+        <button className='bg-hero_button_bg text-hero_button_lb xl:px-11 lg:px-9 md:px-6 py-3 px-4 rounded-lg mr-8 font-bold xl:text-xl lg:text-base'>
+          <a href={config.hero_section.buttons.first_button.link}>
+            {config.hero_section.buttons.first_button.name}
+          </a>
+        </button>
+        <button className='bg-hero_button_bg text-hero_button_lb xl:px-11 lg:px-9 md:px-6 py-3 px-4 rounded-lg font-bold xl:text-xl lg:text-base'>
+          <a href={config.hero_section.buttons.second_button.link}>
+            {config.hero_section.buttons.second_button.name}
+          </a>
+        </button>
       </div>
     </div>
   )
